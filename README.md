@@ -8,3 +8,4 @@ PLAY FUNCTION:
 - If the letter is correct it will display under "WHO'S THE SUPE?????" 
 - If all letters are guessed before ghost rider is hanged, the name of the character will display under "WHO'S THE SUPE?????"
 - Page size must be adjusted for optimized playability
+- Page size must be adjusted for optimized playability (make sure decorations match the corners of the window)
