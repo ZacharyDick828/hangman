@@ -7,3 +7,4 @@ PLAY FUNCTION:
 - You will only be given three clues
 - If the letter is correct it will display under "WHO'S THE SUPE?????" 
 - If all letters are guessed before ghost rider is hanged, the name of the character will display under "WHO'S THE SUPE?????"
+- Page size must be adjusted for optimized playability
