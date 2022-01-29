@@ -20,7 +20,7 @@ function images(url, left, bottom, maxWidth){
     images('assets/Nightwing-Logo.png', 0, 600, 220)
     images('assets/Doom-logo.png', 1250, 0, 180)
     images('assets/Spiderman-logo.png', 1230, 600, 175)
-    images('/assets/Hangman-post.png', 600, 300, 300)
+    images('assets/Hangman-post.png', 600, 300, 300)
 
 
 // Level One
