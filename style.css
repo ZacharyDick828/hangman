@@ -1,4 +1,4 @@
-@media only screen and (max-width = 2561px) and (min-width = 2559) {
+@media only screen and (max-width = 2561px) {
     body{
         display: none
     }
@@ -22,28 +22,28 @@ form {
     flex-direction: column;
     align-items: center;
 }
-.level-one {
+#level-one {
     position: fixed;
     bottom: 25px;
     right: 1000px;
     background-color: royalblue;
     cursor: pointer;
 }
-.level-two {
+#level-two {
     position: fixed;
     bottom: 25px;
     right: 800px;
     background-color: royalblue;
     cursor: pointer;
 }
-.level-three {
+#level-three {
     position: fixed;
     bottom: 25px;
     right: 600px;
     background-color: royalblue;
     cursor: pointer;
 }
-.level-four {
+#level-four {
     position: fixed;
     bottom: 25px;
     right: 400px;
@@ -53,7 +53,7 @@ form {
 .wrong-letter {
     display:flex;
     align-items: center;
-    border: 10px solid royalblue;
+  
     min-height: 4em;
     max-width: 30em;
     position:relative;
@@ -63,8 +63,6 @@ form {
 .correct-letter {
     display:flex;
     align-items: center;
-    border: 10px solid royalblue;
-    border-radius: 1em;
     min-height: 5em;
     max-width: 30em;
     position:relative;
@@ -74,7 +72,7 @@ form {
 }
 h6 {
     position: relative;
-    bottom: 115px;
+    bottom: 105px;
     left: 650px;
     font-weight: bold;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -88,9 +86,28 @@ h5 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: medium;
 }
-.bubble {
+h2 {
+    position: relative;
+    bottom: 10px;
+    left: 1100px;
+    font-weight: bold;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: medium;
+}
+h3 {
     position: fixed;
-    bottom: 250px;
-    right: 1000px;
+    bottom: 600px;
+    left: 810px;
+    font-weight: bold;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: medium;
+}
+#hint {
+    position: fixed;
+    bottom: 375px;
+    right: 875px;
     width: 375px;
+    font-size: large;
+    font-weight: 200
+
 }
