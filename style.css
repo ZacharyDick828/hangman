@@ -1,113 +1,59 @@
-@media only screen and (max-width = 2561px) {
-    body{
-        display: none
-    }
-}
-
-body {
+body { 
     background-color: rgb(223, 104, 104);
 }
-img {
+.container {
+    display: flex;
+    flex-wrap:wrap
+}
+#hang { 
     max-width: 500%;
-    height: auto;
+}
+nav {
+    top: 0em; 
+    justify-content: space-between
 }
 form {
-    position: fixed;
-    bottom: 150px;
-    right: 575px;
-    width: 300px;
+    display:flex;
+    align-items: center; 
+    max-width: fit-content;
+    left: 50em;  
+    top:50em;
     border: 5px outset #214dad;
     border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
-#level-one {
-    position: fixed;
-    bottom: 25px;
-    right: 1000px;
+.nav-item {
     background-color: royalblue;
     cursor: pointer;
 }
-#level-two {
-    position: fixed;
-    bottom: 25px;
-    right: 800px;
-    background-color: royalblue;
-    cursor: pointer;
-}
-#level-three {
-    position: fixed;
-    bottom: 25px;
-    right: 600px;
-    background-color: royalblue;
-    cursor: pointer;
-}
-#level-four {
-    position: fixed;
-    bottom: 25px;
-    right: 400px;
-    background-color: royalblue;
-    cursor: pointer;
-}
-.wrong-letter {
-    display:flex;
-    align-items: center;
+#correct-letter {
+    flex-wrap: wrap;
+   border: 10px solid black;
+    max-width: fit-content;
+    min-height:200px;
+    position: inherit;
+    right: 10em;
+    top: 5em;
+    display: inline-flexbox
   
-    min-height: 4em;
-    max-width: 30em;
-    position:relative;
-    bottom: 0px;
-    left: 450px;
-}
-.correct-letter {
-    display:flex;
-    align-items: center;
-    min-height: 5em;
-    max-width: 30em;
-    position:relative;
-    bottom: -100px;
-    left:  900px;
-
-}
-h6 {
-    position: relative;
-    bottom: 105px;
-    left: 650px;
-    font-weight: bold;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: medium;
-}
-h5 {
-    position: relative;
-    bottom: 10px;
-    left: 1100px;
-    font-weight: bold;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: medium;
 }
 h2 {
+    display: inline;
+   
+    justify-content: flex-start;
+}
+#refresh {
+    color: aliceblue;
+    font-size: smaller;
+    position:relative;
+    left: 3em;
+    top: 2em
+}
+.deaths {
     position: relative;
-    bottom: 10px;
-    left: 1100px;
-    font-weight: bold;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: medium;
+    bottom: 10em;
+    left: 3em;
+    display: inline-flexbox
 }
-h3 {
-    position: fixed;
-    bottom: 600px;
-    left: 810px;
-    font-weight: bold;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: medium;
-}
-#hint {
-    position: fixed;
-    bottom: 375px;
-    right: 875px;
-    width: 375px;
-    font-size: large;
-    font-weight: 200
-
+#graveyard {
+    display: inline-flex
 }

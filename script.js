@@ -1,252 +1,218 @@
 let lives = 4
-
 let levelOneName = ["f", "l", "a", "s", "h"]
-let currentName = levelOneName
-// load image function
-function images(url, left, bottom, maxWidth){
-    let object = document.createElement('img')
-    object.src = url
-    object.style.position = 'fixed'
-    object.style.left = left + 'px'
-    object.style.bottom = bottom + 'px'
-    object.style.maxWidth = maxWidth + 'px'
-    document.body.append(object)
-    return object
-}
+let levelTwoName = ["m", "a", "g", "n", "e", "t", "o"]
+let levelThreeName = ["d", "o", "o", "m"]
+let levelFourName = ["n", "i", "g", "h", "t", "w", "i", "n", "g"]
+let firstName = levelOneName
 
-// decoration
-
-    images('assets/Batman-logo.png', 0, 0, 250)
-    images('assets/Nightwing-Logo.png', 0, 600, 220)
-    images('assets/Doom-logo.png', 1250, 0, 180)
-    images('assets/Spiderman-logo.png', 1230, 600, 175)
-    images('/assets/Hangman-post.png', 600, 300, 300)
-
-
-// Level One
-document.getElementById("level-one").addEventListener("click", function(){
-
-  currentName = levelOneName
-
-  document.getElementById("hint")
-  let hintOne = document.createElement("p")
-  hint.append("HINT: 5 letter word", hintOne)
-
-
-
-
-function deaths() {
-
-  console.log("running death")
+// wrong answer function
+function deaths(hintTwo, hintThree) {
 
   if (lives === 3) {
-    images('assets/Ghost-Rider-Head.png', 580, 555, 75)
-    document.getElementById("hint").textContent = "HINT: real name is Barry Allen"
-  }
-
-  if (lives === 2){
-    images('assets/Ghost-Rider-Body.png', 560, 440, 125)
-    document.getElementById("hint").textContent = "HINT: he's fast"
-  }
-
-  if (lives === 1){
-        images('assets/Left-leg.png', 560, 320, 63)
-  }
-
-  if (lives === 0) {
-    images('assets/Right-leg.png', 618, 315, 63)
+    images('assets/Ghost-Rider-Head.png', -6, 0, 7, 0, 7, 5)
+    console.log('imagerendered)')
+    document.getElementById("hint").textContent = hintTwo
+  } else if (lives === 2) {
+    images('assets/Ghost-Rider-Body.png', -16, 0, 11.5, 0, 14, 9)
+    document.getElementById("hint").textContent = hintThree
+  } else if (lives === 1) {
+    images('assets/Left-leg.png', -29, -40, 20.5, 10, 7, 7)
+  } else {
+    images('assets/Right-leg.png', -30.5, -40, 20.5, 14, 7, 7)
     document.getElementById("hint").textContent = "YOU LOSE! REFRESH PAGE AND CLICK NEW LEVEL"
   }
 }
-        
-document.getElementById('input-form').addEventListener("submit", submit)
 
-function submit(event) {
-  event.preventDefault()
-  let input = document.getElementById("input")
-  let value = input.value.toLowerCase()
-
-  if (currentName.includes(value)) {
-    console.log("success")
-    document.getElementById("correct")
-    let correctInput = document.createElement("p")
-    correct.append(value, correctInput)
-    currentName = currentName.filter(letter => letter !== value)
-    checkIfWin()
-  } else {
-    console.log("failure")
-    document.getElementById("graveyard")
-    let wrongInput = document.createElement("p")
-    graveyard.append(value, wrongInput)
-    lives--
-    deaths()
-    if (lives === 0) {
-      console.log("you lose")
-    }
-  }
+// load image function
+function images(url, left, bottom, top, right, maxWidth, maxHeight) {
+  let object = document.createElement('img')
+  object.src = url
+  object.style.position = 'relative'
+  object.style.left = left + 'em'
+  object.style.right = right + 'em'
+  object.style.bottom = bottom + 'em'
+  object.style.top = top + 'em'
+  object.style.maxWidth = maxWidth + 'em'
+  object.style.maxHeight = maxHeight + 'em'
+  let post = document.getElementById('post')
+  post.append(object)
+  return object
 }
-})
+
+
+// Level One
+document.getElementById("level-one").addEventListener("click", function () {
+
+  lives = 4
+
+  let hintOne = "Hint One: 5 letter word (Member of the Justice League)"
+  let hintTwo = "Hint Two: His real name is Barry Allen"
+  let hintThree = "Hint Three: He's Fast"
+
+  document.getElementById("hint")
+  document.createElement("p")
+  hint.append("")
+  hint.textContent = hintOne
 
   function checkIfWin() {
-    if (currentName.length === 0) {
+    if (firstName.length === 0) {
+      correct.textContent = "FLASH!!!! ==> YOU WIN! HIT REFRESH AND CLICK A NEW LEVEL!"
+    }
+  }
+  document.getElementById('input-form').addEventListener("submit", submit)
+
+  function submit(event) {
+    event.preventDefault()
+    let input = document.getElementById("input")
+    let value = input.value.toLowerCase()
+
+    if (firstName.includes(value)) {
+      console.log("success")
+      document.getElementById("correct")
+      let correctInput = document.createElement("p")
+      correct.append(value, correctInput)
+      firstName = firstName.filter(letter => letter !== value)
+      checkIfWin()
+      console.log('checkingifwon')
+    } else if (!firstName.includes(value)){
+      document.getElementById("graveyard")
+      let wrongInput = document.createElement("p")
+      graveyard.append(value, wrongInput)
+      lives--
+      deaths(hintTwo, hintThree)
+    }
+  }
+})
+// // Level Two
+document.getElementById("level-two").addEventListener("click", function () {
+
+  let hintOne = "First Hint: 7 letter word (X-men Villain)"
+  let hintTwo = "SECOND HINT: He controls Magnetic Fields"
+  let hintThree = "THIRD HINT: He plays chess with an 'Old Friend'"
+
+  document.getElementById("hint")
+  document.createElement("p")
+  hint.append("")
+  hint.textContent = hintOne
+
+  document.getElementById('input-form').addEventListener("submit", submit)
+
+  function checkIfWin() {
+    if (levelTwoName.length === 0) {
       console.log("You win!")
-      let name = levelOneName.join("").toUpperCase()
+      let name = levelTwoName.join("").toUpperCase()
       console.log(name)
-      correct.textContent = "FLASH"
+      correct.textContent = "MAGNETO!!!! ==> YOU WIN! REFRESH PAGE AND CLICK A NEW LEVEL"
+    }
+  }
+  function submit(event) {
+    event.preventDefault()
+    let input = document.getElementById("input")
+    let value = input.value.toLowerCase()
+
+    if (levelTwoName.includes(value)) {
+      document.getElementById("correct")
+      let correctInput = document.createElement("p")
+      correct.append(value, correctInput)
+      levelTwoName = levelTwoName.filter(letter => letter !== value)
+      checkIfWin()
+    } else {
+      document.getElementById("graveyard")
+      let wrongInput = document.createElement("p")
+      graveyard.append(value, wrongInput)
+      lives--
+      deaths(hintTwo, hintThree)
+      if (lives === 0) {
+      }
+    }
+  }
+})
+// Level Three
+document.getElementById("level-three").addEventListener("click", function () {
+
+  let hintOne = "First Hint: 4 letter word (MARVEL VILLAIN)"
+  let hintTwo = "SECOND HINT: Primarily a Fantastic Four Villain"
+  let hintThree = "THIRD HINT: The ruler of Latveria"
+
+  document.getElementById("hint")
+  document.createElement("p")
+  hint.append("")
+  hint.textContent = hintOne
+
+  document.getElementById('input-form').addEventListener("submit", submit)
+
+  function checkIfWin() {
+    if (levelThreeName.length === 0) {
+      console.log("You win!")
+      let name = levelThreeName.join("").toUpperCase()
+      console.log(name)
+      correct.textContent = "DOOM!!!! ==> YOU WIN! REFRESH PAGE AND CLICK A NEW LEVEL"
     }
   }
 
-// // Level Two
+  function submit(event) {
+    event.preventDefault()
+    let input = document.getElementById("input")
+    let value = input.value.toLowerCase()
 
-// document.getElementById("level-two").addEventListener("click", function(){
+    if (levelThreeName.includes(value)) {
+      document.getElementById("correct")
+      let correctInput = document.createElement("p")
+      correct.append(value, correctInput)
+      levelThreeName = levelThreeName.filter(letter => letter !== value)
+      checkIfWin()
+    } else {
+      document.getElementById("graveyard")
+      let wrongInput = document.createElement("p")
+      graveyard.append(value, wrongInput)
+      lives--
+      deaths(hintTwo, hintThree)
+      if (lives === 0) {
+      }
+    }
+  }
+})
 
-//   let lives = 4
-//   let levelTwoName = ["m", "a", "g", "n", "e", "t", "o"]
-//   let currentName = levelTwoName
-//   document.getElementById("hint")
-//   let hintOne = document.createElement("p")
-//   hint.append("HINT: 7 letter word", hintOne)
-
-//   document.getElementById('input-form').addEventListener("submit", submit)
-
-//   function submit(event) {
-//     event.preventDefault()
-//     let input = document.getElementById("input")
-//     let value = input.value.toLowerCase()
-
-//     if (currentName.includes(value)) {
-//       console.log("success")
-//       currentName = currentName.filter(letter => letter !== value)
-//       checkIfWin()
-//     } else {
-//       console.log("failure")
-//       lives--
-//       if (lives === 0) {
-//         console.log("you lose")
-//       }
-//     }
-
-//     function checkIfWin() {
-//       if (currentName.length === 0) {
-//         console.log("You win!")
-//         let name = levelTwoName.join("").toUpperCase()
-//         console.log(name)
-//       }
-//     }
-
-//     input.value = ""
-//     console.log("original:", levelTwoName)
-//     console.log("letters left", currentName)
-//   }
-// })
-//     //HINT: 7 letter word
-    
-//     //HINT: controls magnetic fields
-
-//     //HINT: he plays chess with an old friend
-  
-//     // Level Three
-//     document.getElementById("level-three").addEventListener("click", function(){
-
-//       let lives = 4
-//       let levelThreeName = ["d", "o", "o", "m"]
-//       let currentName = levelThreeName
-//       document.getElementById("hint")
-//   let hintOne = document.createElement("p")
-//   hint.append("HINT: 4 letter word", hintOne)
-
-//       document.getElementById('input-form').addEventListener("submit", submit)
-    
-//       function submit(event) {
-//         event.preventDefault()
-//         let input = document.getElementById("input")
-//         let value = input.value.toLowerCase()
-    
-//         if (currentName.includes(value)) {
-//           console.log("success")
-//           currentName = currentName.filter(letter => letter !== value)
-//           checkIfWin()
-//         } else {
-//           console.log("failure")
-//           lives--
-//           if (lives === 0) {
-//             console.log("you lose")
-//           }
-//         }
-    
-//         function checkIfWin() {
-//           if (currentName.length === 0) {
-//             console.log("You win!")
-//             let name = levelThreeName.join("").toUpperCase()
-//             console.log(name)
-//           }
-//         }
-    
-//         input.value = ""
-//         console.log("original:", levelThreeName)
-//         console.log("letters left", currentName)
-//       }
-// })
-
-//             //hint: "4 letter word" 
-          
-//             // hint: Primarily a Fantastic 4 villain
-           
-//             // hint: At one point becomes the Sorcerer Supreme
-            
 //     // Level Four
-//     document.getElementById("level-four").addEventListener("click", function(){
+document.getElementById("level-four").addEventListener("click", function () {
 
-//       let lives = 4
-//       let levelFourName = ["n", "i", "g", "h", "t", "w", "i", "n", "g"]
-//       let currentName = levelFourName
-//       document.getElementById("hint")
-//   let hintOne = document.createElement("p")
-//   hint.append("HINT: 9 letter word", hintOne)
-    
-//       document.getElementById('input-form').addEventListener("submit", submit)
-    
-//       function submit(event) {
-//         event.preventDefault()
-//         let input = document.getElementById("input")
-//         let value = input.value.toLowerCase()
-    
-//         if (currentName.includes(value)) {
-//           console.log("success")
-//           currentName = currentName.filter(letter => letter !== value)
-//           checkIfWin()
-//         } else {
-//           console.log("failure")
-//           lives--
-//           if (lives === 0) {
-//             console.log("you lose")
-//           }
-//         }
-    
-//         function checkIfWin() {
-//           if (currentName.length === 0) {
-//             console.log("You win!")
-//             let name = levelFourName.join("").toUpperCase()
-//             console.log(name)
-//           }
-//         }
-    
-//         input.value = ""
-//         console.log("original:", levelFourName)
-//         console.log("letters left", currentName)
-//       }
-//  })
+  let hintOne = "FOURTH LEVEL HINT: 9 letter word (DC ANTIHERO)"
+  let hintTwo = "SECOND HINT: He weilds electrified batons"
+  let hintThree = "THIRD HINT: Dick Graysons second superhero identity"
 
+  document.getElementById("hint")
+  document.createElement("p")
+  hint.append("")
+  hint.textContent = hintOne
 
-        //hint: Dick Grayson's second super-hero identity 
-       
-        // hint:Carries electrified batons
-       
-        // hint: 9 letter word
-        
-  
-  
+  document.getElementById('input-form').addEventListener("submit", submit)
 
+  function checkIfWin() {
+    if (levelFourName.length === 0) {
+      levelFourName.join("").toUpperCase()
+      correct.textContent = "NIGHTWING!!!! ==> YOU WIN! REFRESH PAGE AND CLICK A NEW LEVEL"
+    }
+  }
 
+  function submit(event) {
+    event.preventDefault()
+    let input = document.getElementById("input")
+    let value = input.value.toLowerCase()
 
-    
+    if (levelFourName.includes(value)) {
+      document.getElementById("correct")
+      let correctInput = document.createElement("p")
+      correct.append(value, correctInput)
+      levelFourName = levelFourName.filter(letter => letter !== value)
+      checkIfWin()
+    } else {
+      document.getElementById("graveyard")
+      let wrongInput = document.createElement("p")
+      graveyard.append(value, wrongInput)
+      lives--
+      deaths(hintTwo, hintThree)
+      if (lives === 0) {
+      }
+    }
+  }
+})
