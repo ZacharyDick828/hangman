@@ -43,8 +43,6 @@ function images(url, left, bottom, top, right, maxWidth, maxHeight) {
 // Level One
 document.getElementById("level-one").addEventListener("click", function () {
 
-  lives = 4
-
   let hintOne = "Hint One: 5 letter word (Member of the Justice League)"
   let hintTwo = "Hint Two: His real name is Barry Allen"
   let hintThree = "Hint Three: He's Fast"
